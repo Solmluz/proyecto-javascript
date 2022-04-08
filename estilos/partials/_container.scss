@@ -1,0 +1,25 @@
+@import "./responsive";
+
+/*CONTENEDOR GRID*/
+.container-res {
+    max-width: 2560px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    margin: auto;
+    line-height: 1.2;
+    @include laptop {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    @include tablet {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    @include movil {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+}

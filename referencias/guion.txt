@@ -1,0 +1,49 @@
+AVISO: Estás a punto de embarcarte en una experiencia con contenido que quizás no sea apto todo público, se recomienda discreción...
+
+Nombra tu partida:
+
+Anciana: ¡La televisión! ¡Ya era hora! ¡He visto al fantasma del senador "nombre del tipo"! ¡¡¡Es REAL, se los juro!!!
+Guardaespaldas: Señora cálmese por favor.
+
+Tú: (¿Qué debería decir?)
+a.Hemos recibido noticias al respecto...
+b.¿La televisión?
+
+(Si elegiste a)
+Tú: Buenos días, somos un grupo de periodistas independientes, no tenemos conexión con ningún canal. Hemos sido notificados al respecto.
+Reportero: Cuéntenos señora, ¿Qué sucedió exactamente?
+(Si elegiste b)
+Tú: ¿La televisión? ¿De qué está hablando? ¡No somos de ningún canal!
+Reportero: (¿Qué diablos fue eso, idiota? ¡Sé más educada!) Disculpe señora, ¿Podría contarnos lo que sucedió?
+
+Anciana: Fue cuando saqué a pasear a mi bebé "nombre del perro", lo vi por allí entrando al callejón de enfrente...!!! Estaba tan asustada que entré rápido a la casa y no lo volví a ver.. ¡¡Desapareció!! ¡¡Es un FANTASMA!!
+Guardaespaldas: Cálmese señora...
+
+Tú: (¿Qué debería decir?)
+a.De hecho, no es la única...
+b.Quizás fue su imaginación...
+c.¿Ha consumido alcohol, drogas, medicamentos...?
+
+(Si elegiste a)
+Tú: Según nuestro investigador, otras personas también avistaron al presunto "fantasma" por esta zona en concreto.
+Reportero: Así es, no es la única.
+Anciana: Oh, no me diga...
+(Si elegiste b)
+Tú: ¿Está segura de que su mente no le ha jugado una mala pasada?
+Anciana: ¡Por supuesto que no! ¡Seré mayor pero mi mente está completamente intacta!
+Reportero: Además recibimos reportes de otras personas de por aquí a las que también les pasó lo mismo...
+(Si elegiste c)
+Tú: Dígame, ¿Recuerda haber consumido algo que haya tenido efectos alucinógenos, como alcohol, drogas... algún medicamento con efectos secundarios de ese estilo?
+Anciana: No, señorita. Yo de eso nada.
+Reportero: No nos adelantemos, recuerda que otras personas también han reportado lo mismo por esta zona... dudo que haya sido por eso.
+
+Guardaespaldas: Entonces, ¿Qué dicen, deberíamos ir a investigar?
+a.Sí
+b.No
+(Si elegiste a)
+Tú: Iremos, al menos para estar seguros.
+Reportero: Buena idea, ¿Está todo listo?
+Camarógrafo: Sí, vamos.
+(Si elegiste b)
+Tú: No creo que sea buena idea, todo esto me da muy malas vibras.
+Reportero: ¿Estás bromeando? ¡Más razón para ir a investigar!

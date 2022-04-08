@@ -1,0 +1,38 @@
+/*RESPONSIVE*/
+/*CONTENEDOR GRID*/
+.container-res {
+  max-width: 2560px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+  margin: auto;
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 1024px) {
+  .container-res {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-res {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container-res {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+}
+
+/*RESPONSIVE*/
+/*# sourceMappingURL=main.css.map */
