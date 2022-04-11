@@ -1,4 +1,5 @@
-./javascript/dialogos.js
-./referencias/guion.txt
-./estilos/partials/_container.scss
-./estilos/partials/_vars.scss
+javascript/dialogos.js
+referencias/
+estilos/partials/_container.scss
+estilos/partials/_vars.scss
+estilos/partials/_dialogos.scss
