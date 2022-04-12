@@ -6,24 +6,26 @@ class Overworld {
     }
    
     init() {
+      //ACÁ VAN LOS FONDOS.
       const image = new Image();
       image.onload = () => {
         this.ctx.drawImage(image,
-            0,
-            -100,
-            1600,
-            1000)
+          0,
+          -100,
+          1600,
+          1000)
       };
-      image.src = "/imagenes/fondoPlaceholder.png";
+      image.src = "./imagenes/fondoPlaceholder.png";
 
       //ACÁ VAN LOS OBJETOS.
-      const player = new Objeto({
-        x: 2,
-        y: 1,
-      })
-
-      setTimeout(() => {
-        player.model.draw(this.ctx);
-      }, 200);
+      const player = new Image();
+      player.onload = () => {
+        this.ctx.drawImage(player,
+          600, //izquierda
+          230, //arriba
+          400, //anchura
+          400) //altura
+      };
+      player.src = "./imagenes/ninaModel.png";
     }
 }
