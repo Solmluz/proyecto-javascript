@@ -19,11 +19,11 @@ class Model {
 
         this.objeto = config.objeto;
     }
-    draw(context) {
+    draw(ctx) {
         const x = this.objeto.x * 16 - 8;
         const y = this.objeto.y * 16 - 18;
 
-        this.isLoaded && context.drawImage(this.image,
+        this.isLoaded && ctx.drawImage(this.image,
             0, 0, 0, 0,
             x, 
             y,
