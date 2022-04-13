@@ -3,27 +3,32 @@ class Overworld {
     this.element = config.element;
     this.canvas = this.element.querySelector(".game-canvas");
     this.ctx = this.canvas.getContext("2d");
+    this.map = null;
   }
  
+  startGameLoop () {
+    const step = () => {
+
+      //LIMPIAR CANVAS.
+      this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+
+      //ACÁ VA EL FONDO.
+      this.map.drawLowerImage(this.ctx);
+
+      //ACÁ VAN LOS OBJETOS.
+      Object.values(this.map.gameObjects).forEach(object => {
+        object.sprite.draw(this.ctx);
+      })
+
+      requestAnimationFrame(() => {
+        step();
+      })
+    }
+    step();
+  }
+
   init() {
-    const image = new Image();
-    image.onload = () => {
-      this.ctx.drawImage(image,
-          0,
-          -100,
-          1600,
-          1000)
-    };
-    image.src = "./imagenes/fondoPlaceholder.png";
-
-    const nina = new GameObject({
-      x: 50,
-      y: 6,
-    })
-
-    setTimeout(() => {
-      nina.sprite.draw(this.ctx);
-    }, 200)
-
+    this.map = new OverworldMap(window.OverworldMaps.Placeholder);
+    this.startGameLoop();
   }
 }
