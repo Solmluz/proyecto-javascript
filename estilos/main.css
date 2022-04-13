@@ -4,18 +4,21 @@
 }
 
 body {
-  background-color: black;
+  background-color: #1a1212;
   padding: 0;
   margin: 0;
   overflow: hidden;
 }
 
 .game-container {
-  position: relative;
+  position: absolute;
   width: 1600px;
   height: 900px;
   margin: 0 auto;
-  margin-top: 20px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   outline: 1px solid whitesmoke;
 }
 
