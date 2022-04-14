@@ -15,16 +15,16 @@ window.OverworldMaps = {
     Placeholder: {
         lowerSrc: "./imagenes/fondoPlaceholder.png",
         gameObjects: {
-            nina: new GameObject({
-                x:5,
-                y:6,
+            nina: new Player({
+                x: utils.withGrid(50),
+                y: utils.withGrid(6),
             })
         }
     },
     Placeholder2: {
         lowerSrc: "./imagenes/fondoPlaceholder2.png",
         gameObjects: {
-            nina: new GameObject({
+            nina: new Player({
                 x:50,
                 y:10,
             })
