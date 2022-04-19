@@ -1,7 +1,7 @@
 class Player extends GameObject {
     constructor(config) {
         super(config);
-        this.movingProgressRemaining = 48;
+        this.movingProgressRemaining = 8;
 
         this.direction = "right";
 
@@ -18,7 +18,7 @@ class Player extends GameObject {
         this.updateSprite(state);
         if (this.movingProgressRemaining === 0 && state.arrow) {
             this.direction = state.arrow;
-            this.movingProgressRemaining = 48;
+            this.movingProgressRemaining = 8;
         }
     }
 

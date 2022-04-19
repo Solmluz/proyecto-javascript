@@ -12,15 +12,22 @@ class Overworld {
       //LIMPIAR CANVAS.
       this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
 
-      //ACÁ VA EL FONDO.
-      this.map.drawLowerImage(this.ctx);
+      //CONFIGURACIÓN DE LA CÁMARA.
+      const cameraPerson = this.map.gameObjects.nina;
 
-      //ACÁ VAN LOS OBJETOS.
+      //ACTUALIZAR OBJETOS.
       Object.values(this.map.gameObjects).forEach(object => {
         object.update({
           arrow: this.directionInput.direction
         })
-        object.sprite.draw(this.ctx);
+      })
+
+      //ACÁ VA EL FONDO.
+      this.map.drawLowerImage(this.ctx, cameraPerson);
+
+      //ACÁ VAN LOS OBJETOS.
+      Object.values(this.map.gameObjects).forEach(object => {
+        object.sprite.draw(this.ctx, cameraPerson);
       })
 
       requestAnimationFrame(() => {
