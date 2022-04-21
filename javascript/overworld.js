@@ -18,7 +18,8 @@ class Overworld {
       //ACTUALIZAR OBJETOS.
       Object.values(this.map.gameObjects).forEach(object => {
         object.update({
-          arrow: this.directionInput.direction
+          arrow: this.directionInput.direction,
+          map: this.map,
         })
       })
 
@@ -26,7 +27,9 @@ class Overworld {
       this.map.drawLowerImage(this.ctx, cameraPerson);
 
       //ACÁ VAN LOS OBJETOS.
-      Object.values(this.map.gameObjects).forEach(object => {
+      Object.values(this.map.gameObjects).sort((a,b) => {
+        return a.y - b.y;
+      }).forEach(object => {
         object.sprite.draw(this.ctx, cameraPerson);
       })
 
@@ -37,12 +40,41 @@ class Overworld {
     step();
   }
 
+  bindActionInput() {
+    new KeyPressListener("Enter", () => {
+      //HAY ALGUIEN A QUIEN HABLARLE?
+      this.map.checkForActionCutscene()
+    })
+  }
+ 
+  bindHeroPositionCheck() {
+    document.addEventListener("PersonWalkingComplete", e => {
+      if (e.detail.whoId === "nina") {
+        //LA POSICIÓN DEL JUGADOR HA CAMBIADO.
+        this.map.checkForFootstepCutscene()
+      }
+    })
+  }
+ 
+  startMap(mapConfig) {
+   this.map = new OverworldMap(mapConfig);
+   this.map.overworld = this;
+   this.map.mountObjects();
+  }
+
   init() {
-    this.map = new OverworldMap(window.OverworldMaps.Placeholder);
+    this.startMap(window.OverworldMaps.Placeholder2);
+
+    this.bindActionInput();
+    this.bindHeroPositionCheck();
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();
 
     this.startGameLoop();
+
+    this.map.startCutscene([
+      //{type: "changeMap", map: "Placeholder"}
+    ])
   }
 }
