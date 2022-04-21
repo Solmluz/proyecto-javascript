@@ -141,11 +141,6 @@ window.OverworldMaps = {
                 y: utils.withGrid(35),
                 src: "./imagenes/romanModel.png"
             }),
-            sillon: new GameObject({
-                x: utils.withGrid(65),
-                y: utils.withGrid(39),
-                src: "./imagenes/sillon.png"
-            }),
         },
         walls: {
             [utils.asGridCoord(65,21)] : true,
