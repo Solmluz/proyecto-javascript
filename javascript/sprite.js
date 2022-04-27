@@ -11,18 +11,18 @@ class Sprite {
         //CONFIGURACIÓN DE ANIMACIONES Y FRAMES
         this.animations = config.animations || {
             "idle-left": [ [0,0] ],
-            "walk-left": [ [1,0], [2,0], [3,0], [4,0] ],
+            "walk-left": [ [1,0], [2,0], [3,0], [4,0], [5,0], [6,0], [7,0], [8,0] ],
             "idle-right": [ [0,1] ],
-            "walk-right": [ [1,1], [2,1], [3,1], [4,1] ],
+            "walk-right": [ [1,1], [2,1], [3,1], [4,1], [5,1], [6,1], [7,1], [8,1] ],
             "idle-up": [ [0,0] ],
-            "walk-up": [ [1,0], [2,0], [3,0], [4,0] ],
+            "walk-up": [ [1,0], [2,0], [3,0], [4,0], [5,0], [6,0], [7,0], [8,0] ],
             "idle-down": [ [0,0] ],
-            "walk-down": [ [1,0], [2,0], [3,0], [4,0] ],
+            "walk-down": [ [1,0], [2,0], [3,0], [4,0], [5,0], [6,0], [7,0], [8,0] ],
         }
         this.currentAnimation = config.currentAnimation || "idle-left";
         this.currentAnimationFrame = 0;
 
-        this.animationFrameLimit = config.animationFrameLimit || 12;
+        this.animationFrameLimit = config.animationFrameLimit || 7.5;
         this.animationFrameProgress = this.animationFrameLimit;
 
         this.gameObject = config.gameObject;

@@ -24,7 +24,7 @@ class Overworld {
       })
 
       //ACÁ VA EL FONDO.
-      this.map.drawLowerImage(this.ctx, cameraPerson);
+      this.map.drawBgImage(this.ctx, cameraPerson);
 
       //ACÁ VAN LOS OBJETOS.
       Object.values(this.map.gameObjects).sort((a,b) => {
@@ -47,7 +47,7 @@ class Overworld {
     })
   }
  
-  bindHeroPositionCheck() {
+  bindPlayerPositionCheck() {
     document.addEventListener("PersonWalkingComplete", e => {
       if (e.detail.whoId === "nina") {
         //LA POSICIÓN DEL JUGADOR HA CAMBIADO.
@@ -63,10 +63,10 @@ class Overworld {
   }
 
   init() {
-    this.startMap(window.OverworldMaps.Placeholder2);
+    this.startMap(window.OverworldMaps.Estudio);
 
     this.bindActionInput();
-    this.bindHeroPositionCheck();
+    this.bindPlayerPositionCheck();
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();
@@ -74,7 +74,7 @@ class Overworld {
     this.startGameLoop();
 
     this.map.startCutscene([
-      //{type: "changeMap", map: "Placeholder"}
+      {type: "changeMap", map: "Biblioteca"}
     ])
   }
 }

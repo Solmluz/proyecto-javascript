@@ -4,15 +4,15 @@ class OverworldMap {
       this.cutsceneSpaces = config.cutsceneSpaces || {};
       this.walls = config.walls || {};
 
-      this.lowerImage = new Image();
-      this.lowerImage.src = config.lowerSrc;
+      this.bgImage = new Image();
+      this.bgImage.src = config.bgSrc;
 
       this.isCutscenePlaying = false;
   }
 
-  drawLowerImage(ctx, cameraPerson) {
+  drawBgImage(ctx, cameraPerson) {
       ctx.drawImage(
-          this.lowerImage, 
+          this.bgImage, 
           utils.withGrid(30) - cameraPerson.x, 
           utils.withGrid(12) - cameraPerson.y,)
   }
@@ -85,82 +85,129 @@ class OverworldMap {
   }    
 
 window.OverworldMaps = {
-  Placeholder: {
-      lowerSrc: "./imagenes/base.png",
+  Biblioteca: {
+      bgSrc: "./imagenes/base.png",
       gameObjects: {
           nina: new Person({
               isPlayerControlled: true,
-              x: utils.withGrid(65),
+              x: utils.withGrid(70),
               y: utils.withGrid(25),
           }),
           jacques: new Person({
               x: utils.withGrid(35),
               y: utils.withGrid(21),
-              src: "./imagenes/jacquesModel.png"
+              src: "./imagenes/jacquesSprite.png",
+              talking: [
+                {
+                  events: [
+                    {type: "textMessage", text: "Ahora mismo no tengo más trabajos para ti.", facePlayer: "jacques"},
+                    {type: "textMessage", text: "Vuelve luego."},
+                  ]
+                }
+              ]
           }),
           maggie: new Person({
               x: utils.withGrid(15),
               y: utils.withGrid(24),
-              src: "./imagenes/maggieModel.png"
+              src: "./imagenes/maggieSprite.png",
+              talking: [
+                {
+                  events: [
+                    {type: "textMessage", text: "...", facePlayer: "maggie"},
+                  ]
+                }
+              ]
           }),
           keiji: new Person({
               x: utils.withGrid(1),
               y: utils.withGrid(35),
-              src: "./imagenes/keijiModel.png"
-          }),
-      }
-  },
-  Placeholder2: {
-      lowerSrc: "./imagenes/base2.png",
-      gameObjects: {
-          nina: new Person({
-              isPlayerControlled: true,
-              x: utils.withGrid(10),
-              y: utils.withGrid(25),
-          }),
-          dieter: new Person({
-              x: utils.withGrid(50),
-              y: utils.withGrid(22),
-              src: "./imagenes/dieterModel.png"
-          }),
-          gino: new Person({
-              x: utils.withGrid(25),
-              y: utils.withGrid(35),
-              src: "./imagenes/ginoModel.png",
+              src: "./imagenes/keijiSprite.png",
               talking: [
                 {
                   events: [
-                    {type: "textMessage", text: "FUNCIONA.", facePlayer: "gino"},
-                    {type: "textMessage", text: "Felicidades."},
+                    {type: "textMessage", text: "No puedo hablar ahora, estoy ocupado."},
+                  ]
+                }
+              ]
+          }),
+      },
+      walls: {
+        [utils.asGridCoord(64,20)] : true,
+        [utils.asGridCoord(63,20)] : true,
+        [utils.asGridCoord(62,20)] : true,
+        [utils.asGridCoord(61,20)] : true,
+        [utils.asGridCoord(60,20)] : true,
+        [utils.asGridCoord(59,20)] : true,
+        [utils.asGridCoord(58,20)] : true,
+        [utils.asGridCoord(57,20)] : true,
+        [utils.asGridCoord(56,20)] : true,
+        [utils.asGridCoord(55,20)] : true,
+        [utils.asGridCoord(54,20)] : true,
+      },
+      cutsceneSpaces: {
+        [utils.asGridCoord(72,25)]: [
+          {
+            events: [
+              {type: "changeMap", map: "Estudio"}
+            ]
+          }
+        ]
+      }
+  },
+  
+  Estudio: {
+      bgSrc: "./imagenes/base2.png",
+      gameObjects: {
+          nina: new Person({
+              isPlayerControlled: true,
+              x: utils.withGrid(70),
+              y: utils.withGrid(21),
+          }),
+          dieter: new Person({
+              x: utils.withGrid(50),
+              y: utils.withGrid(17),
+              src: "./imagenes/dieterSprite.png"
+          }),
+          gino: new Person({
+              x: utils.withGrid(25),
+              y: utils.withGrid(30),
+              src: "./imagenes/ginoSprite.png",
+              talking: [
+                {
+                  events: [
+                    {type: "textMessage", text: ".", facePlayer: "gino"},
+                    {type: "textMessage", text: "."},
                   ]
                 }
               ]
           }),
           roman: new Person({
               x: utils.withGrid(75),
-              y: utils.withGrid(35),
-              src: "./imagenes/romanModel.png"
+              y: utils.withGrid(30),
+              src: "./imagenes/romanSprite.png"
           }),
       },
       walls: {
-          [utils.asGridCoord(65,21)] : true,
-          [utils.asGridCoord(64,21)] : true,
-          [utils.asGridCoord(63,21)] : true,
-          [utils.asGridCoord(62,21)] : true,
-          [utils.asGridCoord(61,21)] : true,
-          [utils.asGridCoord(60,21)] : true,
-          [utils.asGridCoord(59,21)] : true,
-          [utils.asGridCoord(58,21)] : true,
-          [utils.asGridCoord(57,21)] : true,
+          [utils.asGridCoord(66,16)] : true,
+          [utils.asGridCoord(65,16)] : true,
+          [utils.asGridCoord(64,16)] : true,
+          [utils.asGridCoord(63,16)] : true,
+          [utils.asGridCoord(62,16)] : true,
+          [utils.asGridCoord(61,16)] : true,
+          [utils.asGridCoord(60,16)] : true,
+          [utils.asGridCoord(59,16)] : true,
+          [utils.asGridCoord(58,16)] : true,
+          [utils.asGridCoord(57,16)] : true,
+          [utils.asGridCoord(56,16)] : true,
+        },
+        cutsceneSpaces: {
+          [utils.asGridCoord(4,21)]: [
+            {
+              events: [
+                {type: "changeMap", map: "Biblioteca"}
+              ]
+            }
+          ]
         }
-  },
-  cutsceneSpaces: {
-    [utils.asGridCoord(5,25)]: [
-      {
-        events: [
-          {type: "changeMap", map: "Placeholder"}
-        ]
-      }
-    ]
   }
 }
