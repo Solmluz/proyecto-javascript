@@ -40,6 +40,28 @@ class Overworld {
     step();
   }
 
+  instrucciones () {
+    Swal.fire({
+      title: 'Controles',
+      html: `
+      <p class="instrucciones-texto">Avanzar:</p>
+      <img class="img-avanzar" src="./imagenes/controlesAvanzar.png" alt="Arrow keys/WASD">
+      <p class="instrucciones-texto">Interactuar:</p>
+      <img class="img-interactuar" src="./imagenes/controlesInteraccion.png" alt="Enter">`,
+      color: '#D8C58A',
+      background:'#518278',
+      width: '35rem',
+      padding: '1rem',
+      confirmButtonText: 'Aceptar',
+      buttonsStyling: false,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      customClass: {
+        confirmButton: 'boton',
+      }
+    })
+  }
+
   bindActionInput() {
     new KeyPressListener("Enter", () => {
       //HAY ALGUIEN A QUIEN HABLARLE?
@@ -76,5 +98,7 @@ class Overworld {
     this.map.startCutscene([
       {type: "changeMap", map: "Biblioteca"}
     ])
+
+    this.instrucciones();
   }
 }
