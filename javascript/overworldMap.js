@@ -141,10 +141,15 @@ window.OverworldMaps = {
         y: utils.withGrid(32.4),
         src: "./imagenes/mesaBiblioteca.png",
       }),
-      asientosBiblioteca: new GameObject({
-        x: utils.withGrid(40),
+      asiento1Biblioteca: new GameObject({
+        x: utils.withGrid(34),
+        y: utils.withGrid(25.5),
+        src: "./imagenes/asiento1Biblioteca.png",
+      }),
+      asiento2Biblioteca: new GameObject({
+        x: utils.withGrid(46.5),
         y: utils.withGrid(30),
-        src: "./imagenes/asientosBiblioteca.png",
+        src: "./imagenes/asiento2Biblioteca.png",
       }),
       pizarraBiblioteca: new GameObject({
         x: utils.withGrid(57),
@@ -185,7 +190,7 @@ window.OverworldMaps = {
   },
 
   Estudio: {
-    bgSrc: "./imagenes/base2.png",
+    bgSrc: "./imagenes/fondoEstudio.png",
     gameObjects: {
       nina: new Person({
         isPlayerControlled: true,
