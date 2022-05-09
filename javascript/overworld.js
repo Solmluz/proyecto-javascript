@@ -86,6 +86,7 @@ class Overworld {
 
   init() {
     this.startMap(window.OverworldMaps.Estudio);
+    console.log(this.map.walls);
 
     this.bindActionInput();
     this.bindPlayerPositionCheck();
@@ -99,6 +100,6 @@ class Overworld {
       {type: "changeMap", map: "Biblioteca"}
     ])
 
-    this.instrucciones();
+    //this.instrucciones();
   }
 }

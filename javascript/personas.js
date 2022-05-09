@@ -16,11 +16,12 @@ class Person extends GameObject {
     update(state) {
         if (this.movingProgressRemaining > 0) {
         this.updatePosition();
+        console.log(state.map.isSpaceTaken(this.x, this.y, this.direction));
         } else {
             if (!state.map.isCutscenePlaying && this.isPlayerControlled && state.arrow) {
                 this.startBehavior(state, {
                     type: "walk",
-                    direction: state.arrow
+                    direction: state.arrow,
                 })
             }
             this.updateSprite(state);

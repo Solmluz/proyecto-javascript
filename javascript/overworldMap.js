@@ -19,7 +19,7 @@ class OverworldMap {
   }
 
   isSpaceTaken(currentX, currentY, direction) {
-    const { x, y } = utils.nextPosition(currentX, currentY, direction);
+    const {x,y} = utils.nextPosition(currentX, currentY, direction);
     return this.walls[`${x},${y}`] || false;
   }
 
@@ -93,8 +93,8 @@ window.OverworldMaps = {
         y: utils.withGrid(21),
       }),
       jacques: new Person({
-        x: utils.withGrid(46),
-        y: utils.withGrid(19),
+        x: utils.withGrid(45),
+        y: utils.withGrid(18),
         src: "./imagenes/jacquesSprite.png",
         talking: [
           {
@@ -110,8 +110,8 @@ window.OverworldMaps = {
         ],
       }),
       maggie: new Person({
-        x: utils.withGrid(12),
-        y: utils.withGrid(26),
+        x: utils.withGrid(10),
+        y: utils.withGrid(25),
         src: "./imagenes/maggieSprite.png",
         talking: [
           {
@@ -122,8 +122,8 @@ window.OverworldMaps = {
         ],
       }),
       keiji: new Person({
-        x: utils.withGrid(-1),
-        y: utils.withGrid(32),
+        x: utils.withGrid(-2),
+        y: utils.withGrid(31),
         src: "./imagenes/keijiSprite.png",
         talking: [
           {
@@ -137,13 +137,13 @@ window.OverworldMaps = {
         ],
       }),
       mesaBiblioteca: new GameObject({
-        x: utils.withGrid(74),
-        y: utils.withGrid(32.4),
+        x: utils.withGrid(75),
+        y: utils.withGrid(31.2),
         src: "./imagenes/mesaBiblioteca.png",
       }),
       asiento1Biblioteca: new GameObject({
         x: utils.withGrid(34),
-        y: utils.withGrid(25.5),
+        y: utils.withGrid(24),
         src: "./imagenes/asiento1Biblioteca.png",
       }),
       asiento2Biblioteca: new GameObject({
@@ -153,17 +153,17 @@ window.OverworldMaps = {
       }),
       pizarraBiblioteca: new GameObject({
         x: utils.withGrid(57),
-        y: utils.withGrid(17),
+        y: utils.withGrid(16),
         src: "./imagenes/pizarraBiblioteca.png",
       }),
       equipoBiblioteca: new GameObject({
         x: utils.withGrid(34),
-        y: utils.withGrid(18),
+        y: utils.withGrid(17),
         src: "./imagenes/equipoBiblioteca.png",
       }),
       libreroBiblioteca: new GameObject({
         x: utils.withGrid(16),
-        y: utils.withGrid(17),
+        y: utils.withGrid(16),
         src: "./imagenes/libreroBiblioteca.png",
       }),
     },
