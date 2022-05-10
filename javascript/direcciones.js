@@ -1,3 +1,4 @@
+//PARA CONTROLAR AL PERSONAJE MEDIANTE EL TECLADO.
 class DirectionInput {
     constructor() {
         this.heldDirections = [];

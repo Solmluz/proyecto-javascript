@@ -1,17 +1,21 @@
+//CLASE PARA LOS GAMEOBJECTS.
 class GameObject {
     constructor (config) {
         this.isMounted = false;
         this.x = config.x || 0;
         this.y = config.y || 0;
         this.direction = config.direction || "down";
+        //SPRITE DEL GAMEOBJECT, SI NO SE ESPECIFICA SE PONE POR DEFECTO EL SIGUIENTE:
         this.sprite = new Sprite({
             gameObject: this,
             src: config.src || "./imagenes/ninaSprites.png",
         });
 
+        //PARA LOS GAMEOBJECTS QUE TIENEN COMPORTAMIENTOS EN LOOP, EN DESUSO.
         this.behaviorLoop = config.behaviorLoop || [];
         this.behaviorLoopIndex = 0;
 
+        //PARA QUE LOS GAMEOBJECTS CON CLASE "PERSON" PUEDAN HABLAR.
         this.talking = config.talking || [];
     }
 
@@ -29,6 +33,7 @@ class GameObject {
 
     }
 
+    //PARA COMPORTAMIENTOS EN LOOP, EN DESUSO HASTA QUE ESTÉN LOS SPRITES ADECUADOS.
     async doBehaviorEvent (map) {
         if (map.isCutscenePlaying || this.behaviorLoop.length === 0) {
             return;

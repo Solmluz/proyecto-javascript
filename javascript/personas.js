@@ -1,10 +1,14 @@
+//CLASE PARA EL JUGADOR Y LOS NPCS
 class Person extends GameObject {
     constructor(config) {
         super(config);
+        //INIDICA SI LAS PERSONAS SE VAN A MOVER AL CARGAR.
         this.movingProgressRemaining = 0;
 
+        //SI EL JUGADOR PUEDE CONTROLARLO, ESTÁ PUESTO EN FLASE COMO DEFAULT EXCEPTO PARA EL PERSONAJE DEL JUGADOR.
         this.isPlayerControlled = config.isPlayerControlled || false;
 
+        //QUÉ TAN RÁPIDO SE MUEVE EL PERSONAJE CONTROLABLE.
         this.directionUpdate = {
             "up": ["y", -2.5],
             "down": ["y", 2.5],
@@ -13,6 +17,7 @@ class Person extends GameObject {
         }
     }
 
+    //CAMBIAR POSICIÓN DEL PC Y ESTABLECER EL USO DE LAS TECLAS PARA DICHO FUNCIÓN.
     update(state) {
         if (this.movingProgressRemaining > 0) {
         this.updatePosition();
@@ -41,7 +46,7 @@ class Person extends GameObject {
             }
             //CAMINAR.
             state.map.moveWall(this.x, this.y, this.direction);
-            this.movingProgressRemaining = 8;
+            this.movingProgressRemaining = 8; //CÓMO SE PROYECTAN LOS FRAMES.
             this.updateSprite(state);
 
             if (behavior.type === "stand") {
@@ -68,6 +73,7 @@ class Person extends GameObject {
               }
     }
 
+    //ANIMACIÓN QUE SE USA PARA CADA COMPORTAMIENTO.
     updateSprite() {
         if (this.movingProgressRemaining > 0) {
             this.sprite.setAnimation("walk-"+this.direction);

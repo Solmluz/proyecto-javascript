@@ -1,3 +1,4 @@
+//ES PROBABLE QUE NO ESTÉN FUNCIONANDO LOS QUE TIENEN QUE VER CON COORDENADAS.
 const utils = {
     withGrid(n) {
         return n * 16;
@@ -21,6 +22,7 @@ const utils = {
         return {x,y};
     },
 
+    //PARA QUE EL NPC SE DÉ LA VUELTA HACIA EL JUGADOR.
     oppositeDirection(direction) {
         if (direction === "left") { return "right" }
         if (direction === "right") { return "left" }
@@ -28,6 +30,7 @@ const utils = {
         return "up"
       },
 
+    //EN DESUSO.
     emitEvent(name, detail) {
         const event = new CustomEvent(name, {
           detail

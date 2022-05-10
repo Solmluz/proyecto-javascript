@@ -1,14 +1,14 @@
 class Sprite {
     constructor (config) {
 
-        //ACÁ VAN LOS ARCHIVOS DE IMAGEN
+        //ACÁ VAN LOS ARCHIVOS DE IMAGEN DE LOS GAMEOBJECTS:
         this.image = new Image();
         this.image.src = config.src;
         this.image.onload = () => {
             this.isLoaded = true;
         }
 
-        //CONFIGURACIÓN DE ANIMACIONES Y FRAMES
+        //CONFIGURACIÓN DE ANIMACIONES Y FRAMES.
         this.animations = config.animations || {
             "idle-left": [ [0,0] ],
             "walk-left": [ [1,0], [2,0], [3,0], [4,0], [5,0], [6,0], [7,0], [8,0] ],
@@ -60,6 +60,7 @@ class Sprite {
 
         const [frameX, frameY] = this.frame;
 
+        //MEDIDAS DEL FRAME A UTILIZAR EN LA SPRITESHEET.
         this.isLoaded && ctx.drawImage(this.image,
             frameX * 1000, frameY * 1000,
             1000, 1000,

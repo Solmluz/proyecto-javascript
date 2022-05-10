@@ -40,6 +40,7 @@ class Overworld {
     step();
   }
 
+  //VENTANA QUE APARECE AL INICIAR EL JUEGO.
   instrucciones () {
     Swal.fire({
       title: 'Controles',
@@ -78,13 +79,16 @@ class Overworld {
     })
   }
  
+  //CARGAR EL ESCENARIO CORRESPONDIENTE.
   startMap(mapConfig) {
    this.map = new OverworldMap(mapConfig);
    this.map.overworld = this;
    this.map.mountObjects();
   }
 
+  //INICIA TODO LO DESCRITO ANTERIORMENTE TANTO EN ESTE JS COMO EN LOS DEMÁS.
   init() {
+    //EL ESCENARIO ACTUAL.
     this.startMap(window.OverworldMaps.Estudio);
     console.log(this.map.walls);
 
@@ -96,10 +100,11 @@ class Overworld {
 
     this.startGameLoop();
 
+    //PARA CAMBIAR DE MAPA MEDIANTE EL CÓDIGO.
     this.map.startCutscene([
       {type: "changeMap", map: "Biblioteca"}
     ])
 
-    //this.instrucciones();
+    this.instrucciones();
   }
 }

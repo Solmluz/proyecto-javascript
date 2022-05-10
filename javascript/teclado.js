@@ -1,3 +1,4 @@
+//PARA EVENTOS AL PRESIONAR CIERTAS TECLAS.
 class KeyPressListener {
     constructor(keyCode, callback) {
       let keySafe = true;

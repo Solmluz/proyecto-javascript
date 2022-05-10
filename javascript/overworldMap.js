@@ -1,15 +1,20 @@
+//CLASE PARA LOS DISTINTOS MAPAS /ESCENARIOS/.
 class OverworldMap {
   constructor(config) {
     this.gameObjects = config.gameObjects;
+    //CREAR EVENTOS.
     this.cutsceneSpaces = config.cutsceneSpaces || {};
+    //CREAR PAREDES.
     this.walls = config.walls || {};
 
+    //IMAGEN PARA FONDO.
     this.bgImage = new Image();
     this.bgImage.src = config.bgSrc;
 
     this.isCutscenePlaying = false;
   }
 
+  //UBICAR IMAGEN PARA FONDO.
   drawBgImage(ctx, cameraPerson) {
     ctx.drawImage(
       this.bgImage,
@@ -18,11 +23,14 @@ class OverworldMap {
     );
   }
 
+  //INDICA SI EL ESPACIO ESTÁ OCUPADO POR UN GAMEOBJECT O NO.
   isSpaceTaken(currentX, currentY, direction) {
     const {x,y} = utils.nextPosition(currentX, currentY, direction);
     return this.walls[`${x},${y}`] || false;
   }
 
+  //SIRVE PARA TRASLADAR LOS OBSTÁCULOS AL MISMO TIEMPO QUE LOS GAMEOBJECTS A LOS CUALES ESTÁN ARRAIGADOS CAMBIAN DE POSICIÓN, ASÍ NO SE CREAN OBSTÁCULOS INVISIBLES.
+  //ES POSIBLE QUE NO ESTÉ FUNCIONANDO CORRECTAMENTE...
   mountObjects() {
     Object.keys(this.gameObjects).forEach((key) => {
       let object = this.gameObjects[key];
@@ -32,6 +40,7 @@ class OverworldMap {
     });
   }
 
+  //PARA CREAR EVENTOS, AÚN ESTÁ EN DESUSO.
   async startCutscene(events) {
     this.isCutscenePlaying = true;
 
@@ -70,12 +79,15 @@ class OverworldMap {
     }
   }
 
+  //AGREGAR PAREDES/OBSTÁCULOS.
   addWall(x, y) {
     this.walls[`${x},${y}`] = true;
   }
+  //ELIMINAR PAREDES/OBSTÁCULOS.
   removeWall(x, y) {
     delete this.walls[`${x},${y}`];
   }
+  //MOVER PAREDES/OBSTÁCULOS
   moveWall(wasX, wasY, direction) {
     this.removeWall(wasX, wasY);
     const { x, y } = utils.nextPosition(wasX, wasY, direction);
@@ -83,6 +95,7 @@ class OverworldMap {
   }
 }
 
+//ACÁ ESTÁN UBICADOS LOS MAPAS:
 window.OverworldMaps = {
   Biblioteca: {
     bgSrc: "./imagenes/fondoBiblioteca.png",
@@ -152,21 +165,22 @@ window.OverworldMaps = {
         src: "./imagenes/asiento2Biblioteca.png",
       }),
       pizarraBiblioteca: new GameObject({
-        x: utils.withGrid(57),
+        x: utils.withGrid(56.5),
         y: utils.withGrid(16),
         src: "./imagenes/pizarraBiblioteca.png",
       }),
       equipoBiblioteca: new GameObject({
-        x: utils.withGrid(34),
+        x: utils.withGrid(35),
         y: utils.withGrid(17),
         src: "./imagenes/equipoBiblioteca.png",
       }),
       libreroBiblioteca: new GameObject({
-        x: utils.withGrid(16),
+        x: utils.withGrid(17),
         y: utils.withGrid(16),
         src: "./imagenes/libreroBiblioteca.png",
       }),
     },
+    //PAREDES, NO ESTÁ FUNCIONANDO CORRECTAMENTE.
     walls: {
       [utils.asGridCoord(70, 16)]: true,
       [utils.asGridCoord(69, 16)]: true,
@@ -180,6 +194,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(51, 16)]: true,
       [utils.asGridCoord(50 , 16)]: true,
     },
+    //CAMBIAS DE MAPA AL POSICIONARTE SOBRE LA SALIDA, NO FUNCIONA.
     cutsceneSpaces: {
       [utils.asGridCoord(72, 25)]: [
         {
@@ -221,6 +236,7 @@ window.OverworldMaps = {
         src: "./imagenes/romanSprite.png",
       }),
     },
+    //PAREDES, NO ESTÁ FUNCIONANDO CORRECTAMENTE.
     walls: {
       [utils.asGridCoord(66, 16)]: true,
       [utils.asGridCoord(65, 16)]: true,
@@ -234,6 +250,7 @@ window.OverworldMaps = {
       [utils.asGridCoord(57, 16)]: true,
       [utils.asGridCoord(56, 16)]: true,
     },
+    //CAMBIAS DE MAPA AL POSICIONARTE SOBRE LA SALIDA, NO FUNCIONA.
     cutsceneSpaces: {
       [utils.asGridCoord(4, 21)]: [
         {
