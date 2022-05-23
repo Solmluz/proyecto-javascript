@@ -11,7 +11,7 @@ class GameObject {
             src: config.src || "./imagenes/ninaSprites.png",
         });
 
-        //PARA LOS GAMEOBJECTS QUE TIENEN COMPORTAMIENTOS EN LOOP, EN DESUSO.
+        //PARA LOS GAMEOBJECTS QUE TIENEN COMPORTAMIENTOS EN LOOP, EN DESUSO POR AHORA.
         this.behaviorLoop = config.behaviorLoop || [];
         this.behaviorLoopIndex = 0;
 
@@ -33,7 +33,7 @@ class GameObject {
 
     }
 
-    //PARA COMPORTAMIENTOS EN LOOP, EN DESUSO HASTA QUE ESTÉN LOS SPRITES ADECUADOS.
+    //PARA COMPORTAMIENTOS EN LOOP, EN DESUSO HASTA TENER LOS SPRITES ADECUADOS.
     async doBehaviorEvent (map) {
         if (map.isCutscenePlaying || this.behaviorLoop.length === 0) {
             return;

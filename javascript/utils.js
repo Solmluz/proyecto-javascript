@@ -30,7 +30,7 @@ const utils = {
         return "up"
       },
 
-    //EN DESUSO.
+    //EN DESUSO POR AHORA.
     emitEvent(name, detail) {
         const event = new CustomEvent(name, {
           detail

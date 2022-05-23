@@ -102,7 +102,7 @@ class Overworld {
 
     //PARA CAMBIAR DE MAPA MEDIANTE EL CÓDIGO.
     this.map.startCutscene([
-      {type: "changeMap", map: "Biblioteca"}
+      //{type: "changeMap", map: "Biblioteca"}
     ])
 
     this.instrucciones();
